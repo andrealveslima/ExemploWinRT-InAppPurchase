@@ -1,13 +1,40 @@
-﻿<Page
-    x:Class="ExemploWinRT_InAppPurchase.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ExemploWinRT_InAppPurchase"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
+﻿<Page x:Class="ExemploWinRT_InAppPurchase.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:ExemploWinRT_InAppPurchase"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2">
+            <TextBlock TextWrapping="Wrap"
+                       Text="Anúncio:"
+                       Style="{StaticResource SubtitleTextStyle}"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center" />
 
+            <Image Source="http://www.brain4dev.com/wp-content/uploads/2012/01/Brain4Dev140.png"
+                   Height="116" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Button Content="Remover anúncio"
+                    HorizontalAlignment="Stretch"
+                    Margin="5" />
+            <TextBlock TextWrapping="Wrap"
+                       Text="Anúncio Removido!"
+                       Style="{StaticResource SubheaderTextStyle}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Page>
