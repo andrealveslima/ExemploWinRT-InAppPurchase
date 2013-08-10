@@ -37,7 +37,7 @@ namespace ExemploWinRT_InAppPurchase.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            RemoverAnuncio = new GalaSoft.MvvmLight.Command.RelayCommand(RemoverAnuncioAction);
+            RemoverAnuncio = new GalaSoft.MvvmLight.Command.RelayCommand(RemoverAnuncioAction, CanExecuteRemoverAnuncio);
         }
         #endregion
 
@@ -52,7 +52,13 @@ namespace ExemploWinRT_InAppPurchase.ViewModel
         /// </summary>
         private async void RemoverAnuncioAction()
         {
-            await LicenseHelper.RemoverAnuncioAsync().ContinueWith((task) => GalaSoft.MvvmLight.Threading.DispatcherHelper.RunAsync(() => RaisePropertyChanged("AnuncioRemovido")));
+            await LicenseHelper.RemoverAnuncioAsync().ContinueWith(
+                (task) => GalaSoft.MvvmLight.Threading.DispatcherHelper.RunAsync(
+                    () =>
+                    {
+                        RaisePropertyChanged("AnuncioRemovido");
+                        RemoverAnuncio.RaiseCanExecuteChanged();
+                    }));
         }
         /// <summary>
         /// Indica se o comando RemoverAnuncio pode ser executado ou não.
@@ -64,6 +70,6 @@ namespace ExemploWinRT_InAppPurchase.ViewModel
             return !LicenseHelper.AnuncioRemovido;
         }
         #endregion
-        #endregion    
+        #endregion
     }
 }

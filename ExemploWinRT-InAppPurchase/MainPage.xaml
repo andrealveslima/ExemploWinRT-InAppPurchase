@@ -15,6 +15,18 @@
             <RowDefinition Height="8*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Button Content="Remover anúncio"
+                    HorizontalAlignment="Stretch"
+                    Margin="5"
+                    Command="{Binding Path=RemoverAnuncio}" />
+            <TextBlock TextWrapping="Wrap"
+                       Text="Anúncio Removido!"
+                       Style="{StaticResource SubheaderTextStyle}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Visibility="{Binding AnuncioRemovido, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Grid.ColumnSpan="2">
@@ -23,20 +35,17 @@
                        Style="{StaticResource SubtitleTextStyle}"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center" />
-
             <Image Source="http://www.brain4dev.com/wp-content/uploads/2012/01/Brain4Dev140.png"
-                   Height="116" />
-        </StackPanel>
-        <StackPanel Orientation="Vertical">
-            <Button Content="Remover anúncio"
-                    HorizontalAlignment="Stretch"
-                    Margin="5" 
-                    Command="{Binding Path=RemoverAnuncio}"/>
-            <TextBlock TextWrapping="Wrap"
-                       Text="Anúncio Removido!"
-                       Style="{StaticResource SubheaderTextStyle}"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" />
+                   Height="116">
+            </Image>
+            <StackPanel.Visibility>
+                <Binding Path="AnuncioRemovido"
+                         Converter="{StaticResource BooleanToVisibilityConverter}">
+                    <Binding.ConverterParameter>
+                        <x:Boolean>True</x:Boolean>
+                    </Binding.ConverterParameter>
+                </Binding>
+            </StackPanel.Visibility>
         </StackPanel>
     </Grid>
 </Page>
