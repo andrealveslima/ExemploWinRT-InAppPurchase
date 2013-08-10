@@ -24,6 +24,7 @@ namespace ExemploWinRT_InAppPurchase
         public MainPage()
         {
             this.InitializeComponent();
+            GalaSoft.MvvmLight.Threading.DispatcherHelper.Initialize();
         }
 
         /// <summary>

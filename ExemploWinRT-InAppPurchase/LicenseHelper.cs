@@ -16,11 +16,11 @@ namespace ExemploWinRT_InAppPurchase
         /// <summary>
         /// Atributo privado que contém a instância do Singleton.
         /// </summary>
-        private LicenseHelper _current;
+        private static LicenseHelper _current;
         /// <summary>
         /// Propriedade que expõe a instância do Singleton.
         /// </summary>
-        public LicenseHelper Current
+        public static LicenseHelper Current
         {
             get
             {
