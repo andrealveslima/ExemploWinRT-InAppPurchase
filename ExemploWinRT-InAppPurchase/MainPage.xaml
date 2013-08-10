@@ -24,8 +24,8 @@
                        Text="Anúncio Removido!"
                        Style="{StaticResource SubheaderTextStyle}"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center" 
-                       Visibility="{Binding AnuncioRemovido, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                       VerticalAlignment="Center"
+                       Visibility="{Binding AnuncioRemovido, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
@@ -47,5 +47,23 @@
                 </Binding>
             </StackPanel.Visibility>
         </StackPanel>
+        <Border Grid.Column="1"
+                BorderBrush="White"
+                BorderThickness="1">
+            <TextBlock TextWrapping="Wrap"
+                       Margin="15"
+                       Style="{StaticResource ItemTextStyle}">
+        		<Run Text="Para que este exemplo funcione corretamente, você precisa alterar o arquivo WindowsStoreProxy.xml. Este arquivo está localizado na pasta %LocalAppData%\Packages\&lt;PACKAGE FAMILY NAME&gt;\LocalState\Microsoft\Windows Store\ApiData, onde &lt;PACKAGE FAMILY NAME&gt; é o Package Family Name que você pode encontrar na seção &quot;Packaging&quot; do manifesto desse aplicativo." />
+        		<LineBreak />
+        		<LineBreak />
+        		<Run Text="Provavelmente, para este exemplo, se tudo correr certo, ele deve estar localizado na pasta:" />
+        		<LineBreak />
+        		<Run Text="%LocalAppData%" />
+        		<Run Text="\Packages\84ded8f8-e640-46a6-8ea0-5f0f4d551837_pbvqzr6vqyypm\LocalState\Microsoft\Windows Store\ApiData" />
+        		<LineBreak />
+        		<LineBreak />
+        		<Run Text="Abra este arquivo e altere a tag &quot;IsTrial&quot; (localizada dentro da tag CurrentApp.LicenseInformation.Product) para &quot;false&quot;." />
+            </TextBlock>
+        </Border>
     </Grid>
 </Page>
